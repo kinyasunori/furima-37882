@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false |
-| email              | string | null: false |
-| password           | string | null: false |
-| family_name        | string | null: false |
-| first_name         | string | null: false |
-| read_family        | string | null: false |
-| read_first         | string | null: false |
-| birth              |  date  | null: false |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| family_name        | string | null: false               |
+| first_name         | string | null: false               |
+| read_family        | string | null: false               |
+| read_first         | string | null: false               |
+| birth              |  date  | null: false               |
 
 
 ### Association
@@ -24,18 +24,16 @@
 
 ## items テーブル
 
-|  Column     |  Type      |  Options      |
-| ----------- | ---------- | ------------- |
-| photo       | text       | null: false   |
-| name        | string     | null: false   |  
-| explanation | text       | null: false   |  
-| category    | integer    | null: false   |  
-| postage     | integer    | null: false   |  
-| prefectures | integer    | null: false   |  
-| catch_copy  | integer    | null: false   |  
-| catch_copy  | integer    | null: false   |  
-| concept     | integer    | null: false   |
-| user        | references | null: false   |
+|  Column            |  Type      |  Options      |
+| ------------------ | ---------- | ------------- |
+| product            | string     | null: false   |  
+| explanation        | text       | null: false   |  
+| category_id        | integer    | null: false   |  
+| postage_id         | integer    | null: false   |  
+| prefecture_id      | integer    | null: false   |  
+| preparation_days_id| integer    | null: false   |  
+| price_id           | integer    | null: false   |  
+| user_id            | references | null: false   |
 
 ### Association
 
@@ -45,30 +43,30 @@
 
 ## item_purchases テーブル
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| item      | integer    | null: false, foreign_key: true |
-| user      | integer    | null: false, foreign_key: true |
-| item      | integer    | null: false, foreign_key: true |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| item_id      | references | null: false, foreign_key: true |
+| user_id      | references | null: false, foreign_key: true |
+| purchase_info| references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :purchase_info
+- has_one :purchase_info
 
 ## purchase_info テーブル
 
-| Column             | Type   | Options                        |
-| ------------------ | ------ | ------------------------------ |
-| postal_code        | string | null: false                    |
-| prefectures        | string | null: false, foreign_key: true |
-| city               | string | null: false                    |
-| address            | string | null: false                    |
-| building_name      | string | null: false                    |
-| phone_number       | string | null: false                    |
-| item_purchase      | string | null: false, foreign_key: true |
+| Column             | Type      | Options                        |
+| ------------------ | --------- | ------------------------------ |
+| postal_code        | string    | null: false                    |
+| prefecture_id      | integer   | null: false, foreign_key: true |
+| city               | string    | null: false                    |
+| address            | string    | null: false                    |
+| building_name      | string    |                                |
+| phone_number       | string    | null: false                    |
+| item_purchase      | references| null: false, foreign_key: true |
 
 ### Association
 
-- has_one :item_purchase
+- belongs_to :item_purchase
