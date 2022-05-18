@@ -32,8 +32,8 @@
 | postage_id         | integer    | null: false   |  
 | prefecture_id      | integer    | null: false   |  
 | preparation_days_id| integer    | null: false   |  
-| price_id           | integer    | null: false   |  
-| user_id            | references | null: false   |
+| price              | integer    | null: false   |  
+| user               | references | null: false   |
 
 ### Association
 
@@ -45,17 +45,17 @@
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| item_id      | references | null: false, foreign_key: true |
-| user_id      | references | null: false, foreign_key: true |
+| item         | references | null: false, foreign_key: true |
+| user         | references | null: false, foreign_key: true |
 | purchase_info| references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- has_one :purchase_info
+- has_one :addresses
 
-## purchase_info テーブル
+## addresses テーブル
 
 | Column             | Type      | Options                        |
 | ------------------ | --------- | ------------------------------ |
