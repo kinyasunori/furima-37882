@@ -5,7 +5,7 @@
 | Column             | Type   | Options                   |
 | ------------------ | ------ | ------------------------- |
 | nickname           | string | null: false               |
-| email              | string | null: false, unique: true |
+| e-mail             | string | null: false, unique: true |
 | encrypted_password | string | null: false               |
 | family_name        | string | null: false               |
 | first_name         | string | null: false               |
@@ -52,14 +52,14 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :addresses
+- has_one :address
 
 ## addresses テーブル
 
 | Column             | Type      | Options                        |
 | ------------------ | --------- | ------------------------------ |
 | postal_code        | string    | null: false                    |
-| prefecture_id      | integer   | null: false, foreign_key: true |
+| prefecture_id      | integer   | null: false                    |       
 | city               | string    | null: false                    |
 | address            | string    | null: false                    |
 | building_name      | string    |                                |
