@@ -29,6 +29,7 @@
 | product            | string     | null: false   |  
 | explanation        | text       | null: false   |  
 | category_id        | integer    | null: false   |  
+| condition_id       | integer    | null: false   |  
 | postage_id         | integer    | null: false   |  
 | prefecture_id      | integer    | null: false   |  
 | preparation_days_id| integer    | null: false   |  
