@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   VALID_NAME_REGEX = /\A[ぁ-んァ-ン一-龥々]+\z/
   VALID_READ_REGEX = /\A[ァ-ヶー-]+\z/
-  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
 
   validates :nickname,         presence: true
   
@@ -18,6 +18,6 @@ class User < ApplicationRecord
   end
   validates :birth, presence: true
 
-  has_many :items
-  has_many :item_purchases
+  #has_many :items
+  #has_many :item_purchases
 end
