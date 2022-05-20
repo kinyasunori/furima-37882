@@ -5,7 +5,7 @@
 | Column             | Type   | Options                   |
 | ------------------ | ------ | ------------------------- |
 | nickname           | string | null: false               |
-| email             | string | null: false, unique: true |
+| email              | string | null: false, unique: true |
 | encrypted_password | string | null: false               |
 | family_name        | string | null: false               |
 | first_name         | string | null: false               |
@@ -29,6 +29,7 @@
 | product            | string     | null: false   |  
 | explanation        | text       | null: false   |  
 | category_id        | integer    | null: false   |  
+| condition_id       | integer    | null: false   |  
 | postage_id         | integer    | null: false   |  
 | prefecture_id      | integer    | null: false   |  
 | preparation_days_id| integer    | null: false   |  
