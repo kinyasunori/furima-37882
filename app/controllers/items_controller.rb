@@ -1,6 +1,4 @@
 class ItemsController < ApplicationController
-  
-
   def index
     @items = Item.all.includes(:user)
   end
@@ -24,14 +22,10 @@ class ItemsController < ApplicationController
     @item.destroy
   end
 
-
-
-
   private
 
   def item_params
-    params.require(:item).permit(:nickname, :family_name, :first_name, :read_family, :read_first, :birth).merge(user_id: current_user.id)
+    params.require(:item).permit(:nickname, :family_name, :first_name, :read_family, :read_first,
+                                 :birth).merge(user_id: current_user.id)
   end
-
-  
 end
