@@ -6,15 +6,15 @@ class User < ApplicationRecord
   VALID_NAME_REGEX = /\A[ぁ-んァ-ン一-龥々]+\z/
   VALID_READ_REGEX = /\A[ァ-ヶー-]+\z/
 
-  validates :nickname,       presence: true
+  validates :nickname, presence: true
 
   with_options presence: true do
-  validates :family_name,    presence: true, format: {with: VALID_NAME_REGEX, message: 'Full-width characters.' }
-  validates :first_name,     presence: true, format: {with: VALID_NAME_REGEX, message: 'Full-width characters.' }
-  validates :read_family,    presence: true, format: {with: VALID_READ_REGEX, message: 'Full-width characters.' }
-  validates :read_first,     presence: true, format: {with: VALID_READ_REGEX, message: 'Full-width characters.' }
+    validates :family_name, presence: true, format: { with: VALID_NAME_REGEX, message: 'Full-width characters.' }
+    validates :first_name,     presence: true, format: { with: VALID_NAME_REGEX, message: 'Full-width characters.' }
+    validates :read_family,    presence: true, format: { with: VALID_READ_REGEX, message: 'Full-width characters.' }
+    validates :read_first,     presence: true, format: { with: VALID_READ_REGEX, message: 'Full-width characters.' }
   end
-  validates :birth,          presence: true
+  validates :birth, presence: true
 
   has_many :items
   has_many :item_purchases
