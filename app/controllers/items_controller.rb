@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    # @item = Item.new
+     @item = Item.new
   end
 
   def create
@@ -18,10 +18,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy
+  #def destroy
     # @item = Item.find(params[:id])
     # @item.destroy
-  end
+  #end
 
   private
 
