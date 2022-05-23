@@ -82,7 +82,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("First name can't be blank")
       end
-      it 'first_nameが全角入力でなければ空では登録できない' do
+      it 'first_nameが全角入力でなければ登録できない' do
         @user.first_name = 'kana'
         @user.valid?
         expect(@user.errors.full_messages).to include('First name Full-width characters.')

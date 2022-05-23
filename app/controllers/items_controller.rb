@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
 
   def index
-    @items = Item.includes(:user).order('created_at DESC')
+    # @items = Item.includes(:user).order('created_at DESC')
   end
 
   def new
-    @item = Item.new
+    # @item = Item.new
   end
 
   def create
@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
                                  :preparation_days_id, :price).merge(user_id: current_user.id)
   end
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
+  # def set_item
+  # @item = Item.find(params[:id])
+  # end
 end
