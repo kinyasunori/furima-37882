@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe PurchaseAddress, type: :model do
   before do
-    @purchase_address = FactoryBot.build(:purchase_address)
+    user = FactoryBot.build(:user)
+    item = FactoryBot.build(:item)
+      @purchase_address = FactoryBot.build(:purchase_address,user: user, item: item )
   end
 
   describe '配送先情報の保存' do
