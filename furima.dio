@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="FM4nxyUvc8i_DUWH0g2F" name="ページ1">
-        <mxGraphModel dx="685" dy="314" grid="1" gridSize="3" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="685" dy="255" grid="1" gridSize="3" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -25,7 +25,7 @@
                 <mxCell id="135" value="item_purchases テーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=16;fontStyle=1;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;swimlaneFillColor=none;strokeColor=default;" parent="1" vertex="1">
                     <mxGeometry x="546" y="180" width="252" height="150" as="geometry"/>
                 </mxCell>
-                <mxCell id="136" value="- item（製品）&#10;&#10;- user（購入者）&#10;&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=16;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="135" vertex="1">
+                <mxCell id="136" value="- user（購入者）&#10;&#10;- item（製品）&#10;&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=16;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="135" vertex="1">
                     <mxGeometry y="30" width="252" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="138" style="edgeStyle=none;html=1;fontSize=16;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" parent="1" edge="1">
