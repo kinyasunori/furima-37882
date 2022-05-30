@@ -10,12 +10,12 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@purchase_address).to be_valid
       end
-      it 'user_idが空でなければ保存できる' do
-        @purchase_address.user_id = 1
+      it 'userが空でなければ保存できる' do
+        @purchase_address.user = 1
         expect(@purchase_address).to be_valid
       end
-      it 'item_idが空でなければ保存できる' do
-        @purchase_address.item_id = 1
+      it 'itemが空でなければ保存できる' do
+        @purchase_address.item = 1
         expect(@purchase_address).to be_valid
       end
       it '郵便番号が「3桁＋ハイフン＋4桁」の組み合わせであれば保存できる' do
@@ -45,13 +45,13 @@ RSpec.describe PurchaseAddress, type: :model do
     end
 
     context '配送先情報の保存ができないとき' do
-      it 'user_idが空だと保存できない' do
-        @purchase_address.user_id = nil
+      it 'userが空だと保存できない' do
+        @purchase_address.user = nil
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("User can't be blank")
       end
-      it 'item_idが空だと保存できない' do
-        @purchase_address.item_id = nil
+      it 'itemが空だと保存できない' do
+        @purchase_address.item = nil
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Item can't be blank")
       end
@@ -92,6 +92,11 @@ RSpec.describe PurchaseAddress, type: :model do
       end
       it '電話番号にハイフンがあると保存できないこと' do
         @purchase_address.phone_number = '123 - 1234 - 1234'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
+      end
+      it '電話番号が9桁以下だと保存できないこと' do
+        @purchase_address.phone_number = 123_456_789
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
       end
