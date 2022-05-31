@@ -131,7 +131,7 @@
       <li class='list'>
         <%= link_to item_path(item) do %>
           <div class='item-img-content'>
-            <%= image_tag item.image.variant(resize: '500x500'), class: "item-img" if item.image.attached? %>
+            <%= image_tag item.image, class: "item-img" if item.image.attached? %>
 
             
             <% if item.item_purchase.present? %><%# if 商品の購入履歴があれば %>
@@ -163,7 +163,7 @@
       <% if @items.blank? then %>
       <li class='list'>
         <%= link_to '#' do %>
-        <%= image_tag "sample.png", class: "item-img" %>
+        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
         <div class='item-info'>
           <h3 class='item-name'>
             商品を出品してね！
