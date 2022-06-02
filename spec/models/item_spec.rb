@@ -125,7 +125,7 @@ RSpec.describe Item, type: :model do
       it '価格は半角数字でなければ出品できない' do
         @item.price = '１００００'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price Half-width number')
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
     end
   end
